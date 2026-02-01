@@ -13,7 +13,7 @@ struct GlanceApp: App {
 
     var body: some Scene {
         Settings {
-            EmptyView()
+            PreferencesView()
         }
     }
 }

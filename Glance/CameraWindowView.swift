@@ -1,3 +1,4 @@
+import AVFoundation
 import SwiftUI
 
 struct CameraWindowView: View {
@@ -9,6 +10,44 @@ struct CameraWindowView: View {
             statusOverlay
         }
         .ignoresSafeArea()
+        .overlay(alignment: .bottomTrailing) {
+            Button(cameraServiceMirrorTitle) {
+                cameraService.toggleMirror()
+            }
+            .buttonStyle(.borderless)
+            .font(.system(size: 11, weight: .medium))
+            .foregroundColor(.white.opacity(0.8))
+            .padding(8)
+            .background(Color.black.opacity(0.4))
+            .cornerRadius(8)
+            .padding(8)
+        }
+        .overlay(alignment: .bottomLeading) {
+            cameraMenu
+                .padding(8)
+        }
+    }
+
+    private var cameraServiceMirrorTitle: String {
+        SettingsStore.shared.mirrorMode ? "Mirrored" : "Normal"
+    }
+
+    private var cameraMenu: some View {
+        Menu {
+            ForEach(cameraService.availableDevices, id: \.uniqueID) { device in
+                Button(device.localizedName) {
+                    cameraService.selectDevice(device)
+                }
+            }
+        } label: {
+            Text(cameraService.currentDevice?.localizedName ?? "Camera")
+                .font(.system(size: 11, weight: .medium))
+                .foregroundColor(.white.opacity(0.8))
+                .padding(8)
+                .background(Color.black.opacity(0.4))
+                .cornerRadius(8)
+        }
+        .menuStyle(.borderlessButton)
     }
 
     @ViewBuilder
@@ -46,8 +85,11 @@ struct CameraWindowView: View {
                 message: "Click Retry to start the camera.",
                 showRetry: true
             )
+        default:
+            EmptyView()
         }
     }
+
 
     private func overlayView(title: String, message: String, showRetry: Bool) -> some View {
         VStack(spacing: 8) {
@@ -73,6 +115,6 @@ struct CameraWindowView: View {
 }
 
 #Preview {
-    CameraWindowView(cameraService: CameraService())
+    CameraWindowView(cameraService: CameraService.shared)
         .frame(width: 480, height: 320)
 }

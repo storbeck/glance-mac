@@ -53,11 +53,11 @@ If it’s not checked here, it’s not shipped.
 - [x] Detect available video input devices
 - [x] Default to system default camera
 - [x] Render live camera feed in window
-- [ ] Mirror video horizontally (default on)
-- [ ] Mirror mode toggle implemented
-- [ ] Mirror preference persists
-- [ ] Camera switches correctly when device changes
-- [ ] External webcams supported
+- [x] Mirror video horizontally (default on)
+- [x] Mirror mode toggle implemented
+- [x] Mirror preference persists
+- [x] Camera switches correctly when device changes
+- [x] External webcams supported
 - [x] Camera feed stops immediately when window closes
 
 ---
@@ -77,12 +77,12 @@ If it’s not checked here, it’s not shipped.
 
 ## 5. Preferences (Minimal)
 
-- [ ] Preferences window implemented
-- [ ] Launch at login toggle
-- [ ] Mirror mode toggle
-- [ ] Camera selection dropdown
-- [ ] Preferences persist via UserDefaults
-- [ ] Preferences apply immediately (no restart required)
+- [x] Preferences window implemented
+- [x] Launch at login toggle
+- [x] Mirror mode toggle
+- [x] Camera selection dropdown
+- [x] Preferences persist via UserDefaults
+- [x] Preferences apply immediately (no restart required)
 
 ---
 

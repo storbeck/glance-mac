@@ -14,6 +14,8 @@ final class SettingsStore {
     private enum Keys {
         static let cameraWindowFrame = "cameraWindowFrame"
         static let alwaysOnTop = "alwaysOnTop"
+        static let mirrorMode = "mirrorMode"
+        static let selectedCameraID = "selectedCameraID"
     }
 
     var cameraWindowFrame: NSRect? {
@@ -39,6 +41,27 @@ final class SettingsStore {
         }
         set {
             defaults.set(newValue, forKey: Keys.alwaysOnTop)
+        }
+    }
+
+    var mirrorMode: Bool {
+        get {
+            if defaults.object(forKey: Keys.mirrorMode) == nil {
+                return true
+            }
+            return defaults.bool(forKey: Keys.mirrorMode)
+        }
+        set {
+            defaults.set(newValue, forKey: Keys.mirrorMode)
+        }
+    }
+
+    var selectedCameraID: String? {
+        get {
+            defaults.string(forKey: Keys.selectedCameraID)
+        }
+        set {
+            defaults.set(newValue, forKey: Keys.selectedCameraID)
         }
     }
 }

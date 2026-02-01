@@ -8,6 +8,6 @@ struct CameraPreviewRepresentable: NSViewRepresentable {
     }
 
     func updateNSView(_ nsView: CameraPreviewView, context: Context) {
-        // Session is managed by CameraService.
+        nsView.applyMirrorMode()
     }
 }

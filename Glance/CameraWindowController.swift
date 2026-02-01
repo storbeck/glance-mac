@@ -2,12 +2,15 @@ import AppKit
 import SwiftUI
 
 final class CameraWindowController: NSObject, NSWindowDelegate {
+    static var shared: CameraWindowController?
+
     private let panel: NSPanel
     private var didSetInitialPosition = false
     private let settings = SettingsStore.shared
-    private let cameraService = CameraService()
+    private let cameraService = CameraService.shared
 
     override init() {
+        CameraWindowController.shared = self
         let contentView = CameraWindowView(cameraService: cameraService)
         let hostingView = NSHostingView(rootView: contentView)
 

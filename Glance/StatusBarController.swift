@@ -4,6 +4,7 @@ final class StatusBarController: NSObject {
     private let statusItem: NSStatusItem
     private let menu: NSMenu
     private let cameraWindowController = CameraWindowController()
+    private let preferencesWindowController = PreferencesWindowController()
     private var isCameraActive = false {
         didSet {
             updateIcon()
@@ -81,7 +82,7 @@ final class StatusBarController: NSObject {
     }
 
     @objc private func openPreferences() {
-        NSApp.sendAction(Selector(("showSettingsWindow:")), to: nil, from: nil)
+        preferencesWindowController.show()
     }
 
     @objc private func quit() {

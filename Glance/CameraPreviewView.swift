@@ -3,6 +3,7 @@ import AppKit
 
 final class CameraPreviewView: NSView {
     private let previewLayer: AVCaptureVideoPreviewLayer
+    private let settings = SettingsStore.shared
 
     init(session: AVCaptureSession) {
         previewLayer = AVCaptureVideoPreviewLayer(session: session)
@@ -10,6 +11,7 @@ final class CameraPreviewView: NSView {
         wantsLayer = true
         layer = previewLayer
         previewLayer.videoGravity = .resizeAspectFill
+        applyMirrorMode()
     }
 
     required init?(coder: NSCoder) {
@@ -19,5 +21,12 @@ final class CameraPreviewView: NSView {
     override func layout() {
         super.layout()
         previewLayer.frame = bounds
+    }
+
+    func applyMirrorMode() {
+        if let connection = previewLayer.connection, connection.isVideoMirroringSupported {
+            connection.automaticallyAdjustsVideoMirroring = false
+            connection.isVideoMirrored = settings.mirrorMode
+        }
     }
 }
