@@ -5,9 +5,10 @@ final class CameraWindowController: NSObject, NSWindowDelegate {
     private let panel: NSPanel
     private var didSetInitialPosition = false
     private let settings = SettingsStore.shared
+    private let cameraService = CameraService()
 
     override init() {
-        let contentView = CameraWindowView()
+        let contentView = CameraWindowView(cameraService: cameraService)
         let hostingView = NSHostingView(rootView: contentView)
 
         panel = NSPanel(
@@ -47,6 +48,7 @@ final class CameraWindowController: NSObject, NSWindowDelegate {
     func toggle() -> Bool {
         if panel.isVisible {
             panel.orderOut(nil)
+            cameraService.stop()
             return false
         } else {
             if !didSetInitialPosition {
@@ -57,12 +59,14 @@ final class CameraWindowController: NSObject, NSWindowDelegate {
             panel.orderFrontRegardless()
             panel.makeKeyAndOrderFront(nil)
             NSApp.activate(ignoringOtherApps: true)
+            cameraService.start()
             return true
         }
     }
 
     func windowWillClose(_ notification: Notification) {
         panel.orderOut(nil)
+        cameraService.stop()
     }
 
     func windowDidMove(_ notification: Notification) {

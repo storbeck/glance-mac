@@ -44,36 +44,34 @@ If it’s not checked here, it’s not shipped.
 - [x] Window remembers last size
 - [x] Window remembers last position
 - [x] Window opens near last position on relaunch
-- [ ] Optional always-on-top behavior implemented
-- [ ] Always-on-top preference persists
 
 ---
 
 ## 3. Camera Feed (AVFoundation)
 
-- [ ] Initialize `AVCaptureSession`
-- [ ] Detect available video input devices
-- [ ] Default to system default camera
-- [ ] Render live camera feed in window
+- [x] Initialize `AVCaptureSession`
+- [x] Detect available video input devices
+- [x] Default to system default camera
+- [x] Render live camera feed in window
 - [ ] Mirror video horizontally (default on)
 - [ ] Mirror mode toggle implemented
 - [ ] Mirror preference persists
 - [ ] Camera switches correctly when device changes
 - [ ] External webcams supported
-- [ ] Camera feed stops immediately when window closes
+- [x] Camera feed stops immediately when window closes
 
 ---
 
 ## 4. Camera Permissions & Errors
 
-- [ ] Detect camera permission status on first use
-- [ ] Trigger system permission prompt cleanly
-- [ ] Handle permission denied state gracefully
-- [ ] Show clear error UI if permission denied
+- [x] Detect camera permission status on first use
+- [x] Trigger system permission prompt cleanly
+- [x] Handle permission denied state gracefully
+- [x] Show clear error UI if permission denied
 - [ ] Handle camera already-in-use scenario
-- [ ] Show non-blocking error when camera unavailable
-- [ ] Allow retry after camera becomes available
-- [ ] App does not crash on permission edge cases
+- [x] Show non-blocking error when camera unavailable
+- [x] Allow retry after camera becomes available
+- [x] App does not crash on permission edge cases
 
 ---
 
@@ -81,7 +79,6 @@ If it’s not checked here, it’s not shipped.
 
 - [ ] Preferences window implemented
 - [ ] Launch at login toggle
-- [ ] Always-on-top toggle
 - [ ] Mirror mode toggle
 - [ ] Camera selection dropdown
 - [ ] Preferences persist via UserDefaults
@@ -173,6 +170,7 @@ If it’s not checked here, it’s not shipped.
 
 ## Parking Lot (Explicitly Deferred)
 
+- [ ] Always-on-top behavior + preference
 - [ ] Keyboard shortcuts
 - [ ] Snapshot capture
 - [ ] Picture-in-picture
