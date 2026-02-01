@@ -8,42 +8,42 @@ If it’s not checked here, it’s not shipped.
 
 ## 0. Project Bootstrap
 
-- [ ] Create macOS app project (Swift + SwiftUI)
-- [ ] Configure app as menu bar–only (`LSUIElement`)
-- [ ] Remove Dock icon and Cmd+Tab presence
-- [ ] Configure app sandbox & entitlements
-- [ ] Set minimum supported macOS version
-- [ ] Verify app launches cleanly with no UI shown
+- [x] Create macOS app project (Swift + SwiftUI)
+- [x] Configure app as menu bar–only (`LSUIElement`)
+- [x] Remove Dock icon and Cmd+Tab presence
+- [x] Configure app sandbox & entitlements
+- [x] Set minimum supported macOS version
+- [x] Verify app launches cleanly with no UI shown
 
 ---
 
 ## 1. Menu Bar Integration
 
-- [ ] Create `NSStatusItem`
-- [ ] Add menu bar icon (template image)
+- [x] Create `NSStatusItem`
+- [x] Add menu bar icon (template image)
 - [ ] Define icon states:
-  - [ ] Idle
-  - [ ] Camera active
-- [ ] Left-click toggles camera window
-- [ ] Right-click opens context menu
+  - [x] Idle
+  - [x] Camera active
+- [x] Left-click toggles camera window
+- [x] Right-click opens context menu
 - [ ] Context menu contains:
-  - [ ] Preferences
-  - [ ] Quit
-- [ ] Menu bar icon updates correctly on camera open/close
+  - [x] Preferences
+  - [x] Quit
+- [x] Menu bar icon updates correctly on camera open/close
 
 ---
 
 ## 2. Camera Window (Core UX)
 
-- [ ] Create borderless floating window (`NSWindow` / `NSPanel`)
-- [ ] Window does not appear in Dock or Cmd+Tab
-- [ ] Window opens instantly (<300ms perceived)
-- [ ] Window closes instantly with no animation lag
-- [ ] Window is draggable
-- [ ] Window is freely resizable
-- [ ] Window remembers last size
-- [ ] Window remembers last position
-- [ ] Window opens near last position on relaunch
+- [x] Create borderless floating window (`NSWindow` / `NSPanel`)
+- [x] Window does not appear in Dock or Cmd+Tab
+- [x] Window opens instantly (<300ms perceived)
+- [x] Window closes instantly with no animation lag
+- [x] Window is draggable
+- [x] Window is freely resizable
+- [x] Window remembers last size
+- [x] Window remembers last position
+- [x] Window opens near last position on relaunch
 - [ ] Optional always-on-top behavior implemented
 - [ ] Always-on-top preference persists
 
@@ -187,4 +187,3 @@ Glance v1 is **ready to ship** when:
 - Every checkbox above is complete
 - The app feels boring in the best possible way
 - Using it requires zero thought
-
