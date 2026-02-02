@@ -4,23 +4,23 @@ import SwiftUI
 final class CameraWindowController: NSObject, NSWindowDelegate {
     static var shared: CameraWindowController?
 
-    private let panel: NSPanel
+    private let panel: CameraPanel
     private var didSetInitialPosition = false
     private let settings = SettingsStore.shared
     private let cameraService = CameraService.shared
 
     override init() {
-        CameraWindowController.shared = self
         let contentView = CameraWindowView(cameraService: cameraService)
         let hostingView = NSHostingView(rootView: contentView)
 
-        panel = NSPanel(
+        panel = CameraPanel(
             contentRect: NSRect(x: 0, y: 0, width: 480, height: 320),
             styleMask: [.borderless, .resizable],
             backing: .buffered,
             defer: false
         )
         super.init()
+        CameraWindowController.shared = self
 
         panel.contentView = hostingView
         panel.isReleasedWhenClosed = false

@@ -69,12 +69,18 @@ final class StatusBarController: NSObject {
     }
 
     private func toggleCameraWindow() {
+        PerformanceMonitor.shared.markToggleStart()
         isCameraActive = cameraWindowController.toggle()
+        if isCameraActive {
+            PerformanceMonitor.shared.markToggleVisible()
+        }
     }
 
     private func updateIcon() {
         let symbolName = isCameraActive ? "camera.fill" : "camera"
-        guard let image = NSImage(systemSymbolName: symbolName, accessibilityDescription: nil) else {
+        let configuration = NSImage.SymbolConfiguration(pointSize: 13, weight: .regular)
+        guard let image = NSImage(systemSymbolName: symbolName, accessibilityDescription: nil)?
+            .withSymbolConfiguration(configuration) else {
             return
         }
         image.isTemplate = true

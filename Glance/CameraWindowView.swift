@@ -3,6 +3,7 @@ import SwiftUI
 
 struct CameraWindowView: View {
     @ObservedObject var cameraService: CameraService
+    @State private var isHovering = false
 
     var body: some View {
         ZStack {
@@ -11,20 +12,31 @@ struct CameraWindowView: View {
         }
         .ignoresSafeArea()
         .overlay(alignment: .bottomTrailing) {
-            Button(cameraServiceMirrorTitle) {
-                cameraService.toggleMirror()
+            if isHovering {
+                Button(cameraServiceMirrorTitle) {
+                    cameraService.toggleMirror()
+                }
+                .buttonStyle(.borderless)
+                .font(.system(size: 11, weight: .medium))
+                .foregroundColor(.white.opacity(0.8))
+                .padding(8)
+                .background(Color.black.opacity(0.4))
+                .cornerRadius(8)
+                .padding(8)
+                .transition(.opacity)
             }
-            .buttonStyle(.borderless)
-            .font(.system(size: 11, weight: .medium))
-            .foregroundColor(.white.opacity(0.8))
-            .padding(8)
-            .background(Color.black.opacity(0.4))
-            .cornerRadius(8)
-            .padding(8)
         }
         .overlay(alignment: .bottomLeading) {
-            cameraMenu
-                .padding(8)
+            if isHovering {
+                cameraMenu
+                    .padding(8)
+                    .transition(.opacity)
+            }
+        }
+        .onHover { hovering in
+            withAnimation(.easeInOut(duration: 0.15)) {
+                isHovering = hovering
+            }
         }
     }
 

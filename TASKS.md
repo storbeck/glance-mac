@@ -89,59 +89,59 @@ If it’s not checked here, it’s not shipped.
 ## 6. App Lifecycle & Stability
 
 - [ ] App launches cleanly on login (if enabled)
-- [ ] App survives macOS sleep/wake
-- [ ] App survives display resolution changes
-- [ ] App survives camera hot-plug/unplug
-- [ ] App handles repeated open/close cycles
+- [x] App survives macOS sleep/wake
+- [x] App survives display resolution changes
+- [x] App survives camera hot-plug/unplug
+- [x] App handles repeated open/close cycles
 - [ ] No crashes after extended use (>50 toggles)
-- [ ] No zombie camera sessions left running
+- [x] No zombie camera sessions left running
 
 ---
 
 ## 7. Performance & Resource Usage
 
-- [ ] Cold app launch < 500ms
-- [ ] Camera activation < 300ms perceived
-- [ ] Memory usage < 50MB steady state
-- [ ] No CPU spikes when idle
-- [ ] Camera fully releases resources on close
-- [ ] No background processing when window closed
+- [x] Cold app launch < 500ms
+- [x] Camera activation < 300ms perceived
+- [x] Memory usage < 50MB steady state
+- [x] No CPU spikes when idle
+- [x] Camera fully releases resources on close
+- [x] No background processing when window closed
 
 ---
 
 ## 8. Privacy & Trust
 
-- [ ] No network calls
-- [ ] No analytics or telemetry
-- [ ] Camera active only when window visible
-- [ ] Camera off when app idle
-- [ ] Privacy behavior documented (README or About)
+- [x] No network calls
+- [x] No analytics or telemetry
+- [x] Camera active only when window visible
+- [x] Camera off when app idle
+- [x] Privacy behavior documented (README or About)
 
 ---
 
 ## 9. UX Polish (Ship-Level)
 
-- [ ] Icon aligns with macOS menu bar style
-- [ ] No unnecessary text or labels
-- [ ] No onboarding or first-run screens
-- [ ] Errors are clear but minimal
-- [ ] App feels instantaneous and invisible
-- [ ] Matches macOS look & behavior expectations
+- [x] Icon aligns with macOS menu bar style
+- [x] No unnecessary text or labels
+- [x] No onboarding or first-run screens
+- [x] Errors are clear but minimal
+- [x] App feels instantaneous and invisible
+- [x] Matches macOS look & behavior expectations
 
 ---
 
 ## 10. QA / Manual Test Checklist
 
-- [ ] First launch with no permissions
-- [ ] Permission granted flow
-- [ ] Permission denied flow
-- [ ] Camera in use by another app
-- [ ] External webcam connect/disconnect
-- [ ] Repeated toggle stress test
-- [ ] Launch at login verification
-- [ ] Sleep/wake test
-- [ ] Quit while camera active
-- [ ] Relaunch restores previous state correctly
+- [x] First launch with no permissions
+- [x] Permission granted flow
+- [x] Permission denied flow
+- [x] Camera in use by another app
+- [x] External webcam connect/disconnect
+- [x] Repeated toggle stress test
+- [x] Launch at login verification
+- [x] Sleep/wake test
+- [x] Quit while camera active
+- [x] Relaunch restores previous state correctly
 
 ---
 
